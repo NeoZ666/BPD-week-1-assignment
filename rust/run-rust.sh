@@ -1,0 +1,1 @@
+rustc ./rust/main.rs && ./main
