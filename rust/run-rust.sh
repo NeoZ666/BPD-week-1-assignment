@@ -1,1 +1,1 @@
-rustc ./rust/main.rs && ./main
+cargo run
