@@ -41,7 +41,7 @@ After creating and broadcasting the transaction, save the `txid` to [out.txt](./
 
 ## Execution
 To test your solution locally:
-- Ensure that you have `npm` and `nvm` installed and your system `node -v` is at latest stable version.
+- Ensure that you have `npm` and `nvm` installed and your system. You will need `node v18` or greater to run the test script.
 - Ensure that there is no `bitcoind` process running in your system.
 - Uncomment the line corresponding to your language in [run.sh](./run.sh).
 - Execute [`test.sh`](./test.sh).
