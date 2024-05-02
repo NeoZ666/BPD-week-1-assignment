@@ -14,3 +14,6 @@ chmod +x ./run.sh
 # Run the test scripts
 /bin/bash run.sh
 npm run test
+
+# Stop the docker.
+docker compose down -v
