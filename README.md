@@ -50,6 +50,10 @@ To test your solution locally:
 
 If your code works, you will see the test completed successfully.
 
+## Submission:
+ - Create a commit with your local changes.
+ - Push the commit to your forked repository (`git push origin main`).
+
 ## Evaluation Criteria
 Your submission will be evaluated based on:
 - **Autograder**: Your code must pass the autograder [test script](./test/test.spec.ts).
