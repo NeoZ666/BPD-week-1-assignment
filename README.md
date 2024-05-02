@@ -5,7 +5,8 @@ This week, you'll learn how to use Bitcoin Core's RPC to interact with a running
 
 A [docker-compose](./docker-compose.yaml) file is provided to help you launch a Bitcoin node in `regtest` mode locally.
 
-You can also use the [bitcoin.conf](./bitcoin.conf) file to start a local regtest node with your locally built binaries (recommended). Copy the `bitcoin.conf` file in the default bitcoind data-directory `~/.bitcoin/`. If you don't have the data-directory, just create one.
+[!TIP]
+You can also use the [bitcoin.conf](./bitcoin.conf) file to start a local regtest node with your locally built bitcoin binaries. Copy the `bitcoin.conf` file in the default bitcoin data-directory `~/.bitcoin/`. If you don't have the data-directory, just create one.
 
 ## Objective
 Successfully send a Payment + OP_Return Transaction.
