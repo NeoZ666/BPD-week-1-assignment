@@ -45,7 +45,8 @@ To test your solution locally:
 - Ensure that you have `npm` and `nvm` installed and your system. You will need `node v18` or greater to run the test script.
 - Ensure that there is no `bitcoind` process running in your system.
 - Uncomment the line corresponding to your language in [run.sh](./run.sh).
-- Execute [`test.sh`](./test.sh).
+- Give execution permission to `test.sh`, by running `chmod +x ./test.sh`.
+- Execute [`./test.sh`](./test.sh).
 
 If your code works, you will see the test completed successfully.
 
