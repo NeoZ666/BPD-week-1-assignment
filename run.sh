@@ -1,5 +1,5 @@
 # if you are using bash, uncomment the line below
-# /bin/bash ./bash/run-bash.sh
+/bin/bash ./bash/run-bash.sh
 
 # if you are using javascript, uncomment the line below
 # /bin/bash ./javascript/run-javascript.sh

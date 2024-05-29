@@ -16,12 +16,21 @@ rpc_call() {
 info=$(rpc_call "getblockchaininfo" "[\"\"]")
 echo $info
 
-# Create and load wallet
+# # Create and load wallet
+# wallet=($rpc_call "createwallet" "[\"testwallet\"]")
+# echo $wallet
 
-# Generate a new address
+# # Generate a new address
+# address=$(rpc_call "getnewaddress" "[\"\"]") 
+# echo $address
 
-# Mine 103 blocks to the new address
+# # Mine 103 blocks to the new address
+# mine=$(rpc_call "generatetoaddress" "[103, \"$address\"]")
+# echo $mine
 
-# Send the transaction
+# # Send the transaction
+# txid=$(rpc_call "sendtoaddress" "[\"recipient_address\", amount]")
+# echo $txid
 
-# Output the transaction ID to a file
+# # Output the transaction ID to a file
+# echo $txid > out.txt
