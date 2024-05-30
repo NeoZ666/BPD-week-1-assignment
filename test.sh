@@ -2,6 +2,7 @@
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install --lts
 npm install
+npm i axios
 
 # Spawn Bitcoind, and provide execution permission.
 docker compose up -d
