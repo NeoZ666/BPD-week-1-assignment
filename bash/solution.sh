@@ -12,38 +12,43 @@ rpc_call() {
   curl -s --user $RPC_USER:$RPC_PASSWORD --data-binary "{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"$method\", \"params\": [$params] }" -H 'content-type: text/plain;' http://$RPC_HOST/
 }
 
-# Helper function to make RPC calls
 rpc_call2() {
   local wallet=$1
   local method=$2
   shift 2
-  local params=$@
+  local params="$*"
 
   curl -s --user $RPC_USER:$RPC_PASSWORD --data-binary "{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", \"method\": \"$method\", \"params\": [$params] }" -H 'content-type: text/plain;' http://$RPC_HOST/wallet/$wallet
 }
+
+# Helper function to make RPC calls
 
 # Check Connection
 info=$(rpc_call "getblockchaininfo")
 echo $info
 
 # Create and load wallet
-wallet=$(rpc_call "createwallet" \"walletName2\")
+wallet=$(rpc_call "createwallet" \"walletName6\")
 echo $wallet
 
-unloaded=$(rpc_call "unloadwallet" "$wallet")
-echo $unloaded
-
 # Generate a new address
-address=$(rpc_call2 "walletName2" "getnewaddress") 
-echo $address
+newaddress=$(rpc_call2 "walletName6" "getnewaddress")
+echo $newaddress
 
 # Mine 103 blocks to the new address
-mine=$(rpc_call "generatetoaddress" "[103, \"$address\"]")
+mine=$(rpc_call2 "walletName6" "generatetoaddress" "103, \"bcrt1q3dfmp23rz59xzd5sp7yfjv5hy2p87lmw2qmfnp\"")
 echo $mine
 
-# # Send the transaction
-# txid=$(rpc_call "sendtoaddress" "[\"recipient_address\", amount]")
-# echo $txid
+# minewallet6=$(curl -s --user $RPC_USER:$RPC_PASSWORD --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "generatetoaddress", "params": [103, "bcrt1q3dfmp23rz59xzd5sp7yfjv5hy2p87lmw2qmfnp"]}' -H 'content-type: text/plain;' http://127.0.0.1:18443/wallet/walletName6)
+# echo $minewallet6
 
-# # Output the transaction ID to a file
-# echo $txid > out.txt
+# # Send the transaction
+# Set the transaction fee
+rpc_call2 "walletName6" "settxfee" "0.00021"
+
+# Send bitcoins
+txid=$(rpc_call2 "walletName6" "sendtoaddress" "\"bcrt1qq2yshcmzdlznnpxx258xswqlmqcxjs4dssfxt2\", 100")
+echo $txid
+
+# Output the transaction ID to a file
+echo $txid > out.txt
