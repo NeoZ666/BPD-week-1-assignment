@@ -32,11 +32,12 @@ wallet=$(rpc_call "createwallet" \"walletName6\")
 echo $wallet
 
 # Generate a new address
-newaddress=$(rpc_call2 "walletName6" "getnewaddress")
+newaddress=$(rpc_call2 "walletName6" "getnewaddress" | jq -r '.result')
 echo $newaddress
 
 # Mine 103 blocks to the new address
-mine=$(rpc_call2 "walletName6" "generatetoaddress" "103, \"bcrt1q3dfmp23rz59xzd5sp7yfjv5hy2p87lmw2qmfnp\"")
+# mine=$(rpc_call2 "walletName6" "generatetoaddress" "103, \"bcrt1qxzc9u38jswg2f3crnzx32te2e9c0h5mcvm4ne9\"")
+mine=$(rpc_call2 "walletName6" "generatetoaddress" "103, \"$newaddress\"")
 echo $mine
 
 # minewallet6=$(curl -s --user $RPC_USER:$RPC_PASSWORD --data-binary '{"jsonrpc": "1.0", "id": "curltest", "method": "generatetoaddress", "params": [103, "bcrt1q3dfmp23rz59xzd5sp7yfjv5hy2p87lmw2qmfnp"]}' -H 'content-type: text/plain;' http://127.0.0.1:18443/wallet/walletName6)
