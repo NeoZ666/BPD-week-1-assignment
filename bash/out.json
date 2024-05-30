@@ -1,32 +1,8 @@
 {
-    "result": {
-        "chain": "regtest",
-        "blocks": 0,
-        "headers": 0,
-        "bestblockhash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206",
-        "difficulty": 4.656542373906925e-10,
-        "time": 1296688602,
-        "mediantime": 1296688602,
-        "verificationprogress": 1,
-        "initialblockdownload": true,
-        "chainwork": "0000000000000000000000000000000000000000000000000000000000000002",
-        "size_on_disk": 293,
-        "pruned": false,
-        "warnings": ""
-    },
-    "error": null,
-    "id": "curltest"
-}
-{
-    "result": "bcrt1qkyvj4qcwmheel06anzhzyzxapggcw5zv9kjr08",
-    "error": null,
-    "id": "curltest"
-}
-{
     "result": null,
     "error": {
-        "code": -32700,
-        "message": "Parse error"
+        "code": -1,
+        "message": "sendtoaddress \"address\" amount ( \"comment\" \"comment_to\" subtractfeefromamount replaceable conf_target \"estimate_mode\" avoid_reuse fee_rate verbose )\n\nSend an amount to a given address.\nRequires wallet passphrase to be set with walletpassphrase call if wallet is encrypted.\n\nArguments:\n1. address (string, required) The bitcoin address to send to.\n2. amount (numeric or string, required) The amount in BTC to send. eg 0.1\n3. comment (string, optional) A comment used to store what the transaction is for.\n This is not part of the transaction, just kept in your wallet.\n4. comment_to (string, optional) A comment to store the name of the person or organization\n to which you're sending the transaction. This is not part of the \n transaction, just kept in your wallet.\n5. subtractfeefromamount (boolean, optional, default=false) The fee will be deducted from the amount being sent.\n The recipient will receive less bitcoins than you enter in the amount field.\n6. replaceable (boolean, optional, default=wallet default) Signal that this transaction can be replaced by a transaction (BIP 125)\n7. conf_target (numeric, optional, default=wallet -txconfirmtarget) Confirmation target in blocks\n8. estimate_mode (string, optional, default=\"unset\") The fee estimate mode, must be one of (case insensitive):\n \"unset\"\n \"economical\"\n \"conservative\"\n9. avoid_reuse (boolean, optional, default=true) (only available if avoid_reuse wallet flag is set) Avoid spending from dirty addresses; addresses are considered\n dirty if they have previously been used in a transaction. If true, this also activates avoidpartialspends, grouping outputs by their addresses.\n10. fee_rate (numeric or string, optional, default=not set, fall back to wallet fee estimation) Specify a fee rate in sat/vB.\n11. verbose (boolean, optional, default=false) If true, return extra information about the transaction.\n\nResult (if verbose is not set or set to false):\n\"hex\" (string) The transaction id.\n\nResult (if verbose is set to true):\n{ (json object)\n \"txid\" : \"hex\", (string) The transaction id.\n \"fee_reason\" : \"str\" (string) The transaction fee reason.\n}\n\nExamples:\n\nSend 0.1 BTC\n> bitcoin-cli sendtoaddress \"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" 0.1\n\nSend 0.1 BTC with a confirmation target of 6 blocks in economical fee estimate mode using positional arguments\n> bitcoin-cli sendtoaddress \"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" 0.1 \"donation\" \"sean's outpost\" false true 6 economical\n\nSend 0.1 BTC with a fee rate of 1.1 sat/vB, subtract fee from amount, BIP125-replaceable, using positional arguments\n> bitcoin-cli sendtoaddress \"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" 0.1 \"drinks\" \"room77\" true true null \"unset\" null 1.1\n\nSend 0.2 BTC with a confirmation target of 6 blocks in economical fee estimate mode using named arguments\n> bitcoin-cli -named sendtoaddress address=\"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" amount=0.2 conf_target=6 estimate_mode=\"economical\"\n\nSend 0.5 BTC with a fee rate of 25 sat/vB using named arguments\n> bitcoin-cli -named sendtoaddress address=\"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" amount=0.5 fee_rate=25\n> bitcoin-cli -named sendtoaddress address=\"bc1q09vm5lfy0j5reeulh4x5752q25uqqvz34hufdl\" amount=0.5 fee_rate=25 subtractfeefromamount=false replaceable=true avoid_reuse=true comment=\"2 pizzas\" comment_to=\"jeremy\" verbose=true\n"
     },
-    "id": null
+    "id": "curltest"
 }

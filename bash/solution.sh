@@ -2,6 +2,7 @@
 RPC_USER="alice"
 RPC_PASSWORD="password"
 RPC_HOST="127.0.0.1:18443"
+WALLET="walletName6"
 
 # Helper function to make RPC calls
 rpc_call() {
